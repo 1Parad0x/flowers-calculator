@@ -1,55 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<title>Flowers Price Calculator</title>
-		<link rel="stylesheet" href="styles.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
-			rel="stylesheet"
-		/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		<div class="splash-screen">
-			<h2 id="splashText">Paradox Dev</h2>
-		</div>
-		<div class="container">
-			<h1>Калькулятор стоимости цветов</h1>
-			<form id="flowerForm">
-				<div class="input-group">
-					<label><span class="icon">🌸</span> Розовые цветы:</label>
-					<input
-						type="number"
-						id="pink"
-						value="0"
-						min="0"
-						class="no-spinners"
-					/>
-				</div>
-				<div class="input-group">
-					<label><span class="icon">🌼</span> Синие цветы:</label>
-					<input
-						type="number"
-						id="blue"
-						value="0"
-						min="0"
-						class="no-spinners"
-					/>
-				</div>
-				<div class="input-group">
-					<label><span class="icon">🌹</span> Красные цветы:</label>
-					<input type="number" id="red" value="0" min="0" class="no-spinners" />
-				</div>
-				<button type="button" onclick="calculatePrice()">Рассчитать</button>
-			</form>
-			<div id="result" class="result" style="display: none"></div>
-			<button id="resetBtn" onclick="resetForm()" style="display: none">
-				Сброс
-			</button>
-			<div id="history" class="history" style="display: none"></div>
-		</div>
-		<canvas id="webCanvas"></canvas>
-		<script src="script.js"></script>
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор стоимости цветов</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="splash-screen">
+        <h2 id="splashText">Paradox Dev</h2>
+    </div>
+    <div class="container">
+        <h1>Калькулятор стоимости цветов</h1>
+        <form id="flowerForm">
+            <div class="input-group">
+                <label><span class="icon">🌸</span> Розовые цветы:</label>
+                <input type="number" id="pink" value="0" min="0" class="no-spinners">
+            </div>
+            <div class="input-group">
+                <label><span class="icon">🌼</span> Синие цветы:</label>
+                <input type="number" id="blue" value="0" min="0" class="no-spinners">
+            </div>
+            <div class="input-group">
+                <label><span class="icon">🌹</span> Красные цветы:</label>
+                <input type="number" id="red" value="0" min="0" class="no-spinners">
+            </div>
+            <button type="button" onclick="calculatePrice()">Рассчитать</button>
+        </form>
+        <div id="result" class="result" style="display: none;"></div>
+        <button id="resetBtn" onclick="resetForm()" style="display: none;">Сброс</button>
+        <div id="history" class="history" style="display: none;"></div>
+    </div>
+    <div class="income-counter">
+        <h2>Счётчик доходов</h2>
+        <p>Розовые: <span id="pinkIncome">0</span></p>
+        <p>Синие: <span id="blueIncome">0</span></p>
+        <p>Красные: <span id="redIncome">0</span></p>
+        <p>Общая цена: <span id="totalIncome">0</span></p>
+        <p>Затраты на цветы: <span id="costs" class="red">0</span></p>
+        <p>Прибыль: <span id="profit" class="green">0</span></p>
+    </div>
+    <canvas id="webCanvas"></canvas>
+    <audio id="clickSound" src="https://www.myinstants.com/media/sounds/switch-2.mp3"></audio>
+    <script src="script.js"></script>
+</body>
 </html>

@@ -2,6 +2,7 @@ function calculatePrice() {
 	document.getElementById('result').style.display = 'block'
 	document.getElementById('history').style.display = 'block'
 	document.getElementById('resetBtn').style.display = 'block'
+	playSound()
 
 	let pink = parseInt(document.getElementById('pink').value) || 0
 	let blue = parseInt(document.getElementById('blue').value) || 0
@@ -19,6 +20,7 @@ function calculatePrice() {
             <p class="red">Красные: ${maxPrice} (100% от максимума)</p>
             <p class="total">Общая базовая цена: ${maxPrice}</p>
         `
+		updateIncome(1000, 1000, 1000)
 		saveHistory(pink, blue, red, maxPrice)
 		return
 	}
@@ -55,6 +57,7 @@ function calculatePrice() {
 	)}% от максимума)</p>
         <p class="total">Общая базовая цена: ${totalPrice}</p>
     `
+	updateIncome(pinkPrice, bluePrice, redPrice)
 	saveHistory(pink, blue, red, totalPrice)
 }
 
@@ -67,6 +70,8 @@ function resetForm() {
 	document.getElementById('history').style.display = 'none'
 	document.getElementById('history').innerHTML = ''
 	document.getElementById('resetBtn').style.display = 'none'
+	updateIncome(1000, 1000, 1000)
+	playSound()
 }
 
 function saveHistory(pink, blue, red, totalPrice) {
@@ -78,6 +83,32 @@ function saveHistory(pink, blue, red, totalPrice) {
 		historyDiv.removeChild(historyDiv.lastChild)
 	}
 	localStorage.setItem('flowerHistory', historyDiv.innerHTML)
+}
+
+function playSound() {
+	const sound = document.getElementById('clickSound')
+	sound.currentTime = 0
+	sound.play()
+}
+
+function updateIncome(pinkPrice, bluePrice, redPrice) {
+	const pinkIncome = pinkPrice * 800
+	const blueIncome = bluePrice * 800
+	const redIncome = redPrice * 800
+	const totalIncome = pinkIncome + blueIncome + redIncome
+	const costs = totalIncome
+	const initialIncome = 3500000
+	const profit = initialIncome - costs
+
+	document.getElementById('pinkIncome').textContent =
+		pinkIncome.toLocaleString()
+	document.getElementById('blueIncome').textContent =
+		blueIncome.toLocaleString()
+	document.getElementById('redIncome').textContent = redIncome.toLocaleString()
+	document.getElementById('totalIncome').textContent =
+		totalIncome.toLocaleString()
+	document.getElementById('costs').textContent = costs.toLocaleString()
+	document.getElementById('profit').textContent = profit.toLocaleString()
 }
 
 const canvas = document.getElementById('webCanvas')
@@ -170,6 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (history) {
 		document.getElementById('history').innerHTML = history
 	}
+	updateIncome(1000, 1000, 1000)
 	setTimeout(() => {
 		document.querySelector('.splash-screen').style.display = 'none'
 	}, 1500)

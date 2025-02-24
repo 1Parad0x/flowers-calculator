@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Flowers Price Calculator</title>
+		<link rel="stylesheet" href="styles.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="splash-screen">
+			<h2 id="splashText">Paradox Dev</h2>
+		</div>
+		<div class="container">
+			<h1>Калькулятор стоимости цветов</h1>
+			<form id="flowerForm">
+				<div class="input-group">
+					<label><span class="icon">🌸</span> Розовые цветы:</label>
+					<input
+						type="number"
+						id="pink"
+						value="0"
+						min="0"
+						class="no-spinners"
+					/>
+				</div>
+				<div class="input-group">
+					<label><span class="icon">🌼</span> Синие цветы:</label>
+					<input
+						type="number"
+						id="blue"
+						value="0"
+						min="0"
+						class="no-spinners"
+					/>
+				</div>
+				<div class="input-group">
+					<label><span class="icon">🌹</span> Красные цветы:</label>
+					<input type="number" id="red" value="0" min="0" class="no-spinners" />
+				</div>
+				<button type="button" onclick="calculatePrice()">Рассчитать</button>
+			</form>
+			<div id="result" class="result" style="display: none"></div>
+			<button id="resetBtn" onclick="resetForm()" style="display: none">
+				Сброс
+			</button>
+			<div id="history" class="history" style="display: none"></div>
+		</div>
+		<canvas id="webCanvas"></canvas>
+		<script src="script.js"></script>
+	</body>
+</html>

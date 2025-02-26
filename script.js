@@ -6,11 +6,11 @@ function copyPrices() {
 	const pinkMatch = pinkElement.textContent.match(/:\s*(\d+)\s*\(/)
 	const blueMatch = blueElement.textContent.match(/:\s*(\d+)\s*\(/)
 	const redMatch = redElement.textContent.match(/:\s*(\d+)\s*\(/)
-
 	const pinkPrice = parseInt(pinkMatch ? pinkMatch[1] : 1000) || 1000
 	const bluePrice = parseInt(blueMatch ? blueMatch[1] : 1000) || 1000
 	const redPrice = parseInt(redMatch ? redMatch[1] : 1000) || 1000
-	const currentDate = '25.02.2025'
+	const today = new Date;
+	const currentDate = today.getDate() + "." + (today.getMonth()+1) + "." + today.getFullYear()
 	const text = `Актуальные цены за цветы на ${currentDate}:\nРозовые - ${pinkPrice} р. за 1 штуку\nСиние - ${bluePrice} р. за 1 штуку\nКрасные - ${redPrice} р. за 1 штуку`
 	navigator.clipboard
 		.writeText(text)

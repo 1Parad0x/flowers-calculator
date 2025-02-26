@@ -254,8 +254,8 @@ button:active {
     width: 200px;
     z-index: 1;
     opacity: 0;
-    animation: slideRight 0.5s ease-in-out 0.3s forwards;
     text-shadow: 1px 1px 3px #000000 ;
+    animation: fadeIn 0.5s ease-in-out 1.5s forwards;
 }
 
 @keyframes slideRight {
@@ -305,15 +305,16 @@ button:active {
 @media (max-width: 768px) {
     .container {
         max-width: 90%;
+        max-height: 500px;
         padding: 15px;
+        top: 80px;
     }
 
     .income-counter {
-        position: static;
-        width: 100%;
-        margin-top: 15px;
-        right: auto;
-        top: auto;
+        position: top;
+        width: 50%;
+        left: 80px;
+        padding: auto;
     }
 
     h1 {

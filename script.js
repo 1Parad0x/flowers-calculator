@@ -13,13 +13,7 @@ function copyPrices() {
 	const currentDate = today.getDate() + "." + (today.getMonth()+1) + "." + today.getFullYear()
 	const text = `Актуальные цены за цветы на ${currentDate}:\nРозовые - ${pinkPrice} р. за 1 штуку\nСиние - ${bluePrice} р. за 1 штуку\nКрасные - ${redPrice} р. за 1 штуку`
 	navigator.clipboard
-		.writeText(text)
-		.then(() => {
-			alert('Цены скопированы в буфер обмена!')
-		})
-		.catch(err => {
-			console.error('Ошибка копирования: ', err)
-		})
+		.writeText(text)	
 }
 
 function calculatePrice() {
@@ -32,8 +26,8 @@ function calculatePrice() {
 	let red = parseInt(document.getElementById('red').value) || 0
 
 	let totalFlowers = pink + blue + red
-	const minPrice = 1050
-	const maxPrice = 1400
+	const minPrice = 1100
+	const maxPrice = 1500
 	const priceRange = maxPrice - minPrice
 
 	if (totalFlowers === 0) {
@@ -136,7 +130,7 @@ document.addEventListener('mousemove', e => {
 })
 
 const stars = []
-const starCount = 200
+const starCount = 300
 
 class Star {
 	constructor() {
